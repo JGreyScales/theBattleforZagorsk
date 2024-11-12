@@ -60,6 +60,16 @@ fnc_spawnVehicles = {
     _waypoint setWaypointType "MOVE";
 };
 
+// summons a flyby over the target
+fnc_summonFlyBy = {
+    _flybyStart = getMarkerPos "marker_7"; 
+    _flyByEnd = getMarkerPos "marker_8"; 
+    [_flyByStart, _flybyEnd, 60, "FULL", "O_Plane_CAS_02_dynamicLoadout_F", east] call BIS_fnc_ambientFlyby;
+    sleep 5;
+    [_flyByStart, _flybyEnd, 100, "FULL", "O_Plane_CAS_02_dynamicLoadout_F", east] call BIS_fnc_ambientFlyby;
+
+}
+
 // Function to spawn enemies at regular intervals
 while {true} do {
     // Determine random chance for which type of enemies to spawn
@@ -82,13 +92,15 @@ while {true} do {
             call fnc_spawnInfantryGroup;
         };
         case 5: {
-            _trigger = selectRandom [0, 1];
+            _trigger = selectRandom [0, 1, 2];
             if (0 == _trigger){
                 call fnc_spawnInfantryGroup;
                 call fnc_spawnInfantryGroup;
                 call fnc_spawnVehicles;
                 sleep 30;
                 call fnc_spawnInfantryGroup;
+            } else if (1 == _trigger){
+                call fnc_summonFlyBy;
             };
         };
     };
