@@ -1,4 +1,5 @@
-[west, 33] call BIS_fnc_respawnTickets;
+_playerCount = count allPlayers;
+[west, 47 - (5 * _PlayerCount)] call BIS_fnc_respawnTickets;
 execvm "initPlayerLocal.sqf";
 
 sleep 12;
