@@ -1,5 +1,5 @@
 // Time interval between spawns (in seconds)
-_spawnInterval = 170;
+_spawnInterval = 155;
 
 
 
@@ -78,14 +78,25 @@ while {true} do {
         case 1: {
             call fnc_spawnInfantryGroup;
         };
-        case 2, 9: {
+        case 2: {
             call fnc_spawnVehicles;
         };
-        case 3, 7: {
+        case 9:{
+            call fnc_spawnVehicles;
+        };
+        case 3: {
             call fnc_spawnInfantryGroup;
             call fnc_spawnVehicles;
         };
-        case 4, 8: {
+        case 7:{
+            call fnc_spawnInfantryGroup;
+            call fnc_spawnVehicles;
+        };
+        case 4: {
+            call fnc_spawnInfantryGroup;
+            call fnc_spawnInfantryGroup;
+        };
+        case 8: {
             call fnc_spawnInfantryGroup;
             call fnc_spawnInfantryGroup;
         };
