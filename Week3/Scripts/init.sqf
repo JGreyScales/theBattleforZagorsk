@@ -1,5 +1,5 @@
 if (isServer) then {
-    [west, 12] call BIS_fnc_respawnTickets;
+    [west, 30] call BIS_fnc_respawnTickets;
     missionNamespace setVariable ["playersLeft", false];
 
     // Wait until all players are initialized and alive
